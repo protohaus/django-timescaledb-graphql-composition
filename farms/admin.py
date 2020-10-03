@@ -7,6 +7,7 @@ from farms.models import (
     SiteEntity,
     ControllerComponent,
     PeripheralComponent,
+    PoseComponent,
     DataPointType,
     DataPoint,
 )
@@ -39,6 +40,11 @@ class ControllerComponentAdmin(admin.ModelAdmin):
 
 @admin.register(PeripheralComponent)
 class PeripheralComponentAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PoseComponent)
+class PoseComponentAdmin(admin.ModelAdmin):
     pass
 
 

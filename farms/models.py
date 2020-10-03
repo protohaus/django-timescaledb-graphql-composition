@@ -66,6 +66,7 @@ class SiteEntity(models.Model):
     def __str__(self):
         return self.name
 
+
 class ControllerComponent(models.Model):
     id = models.UUIDField(
         primary_key=True,
@@ -94,6 +95,30 @@ class PeripheralComponent(models.Model):
 
     def __str__(self):
         return f"Peripheral of SE {self.site_entity.name}"
+
+
+class PoseComponent(models.Model):
+    id = models.UUIDField(
+        primary_key=True,
+        default=uuid.uuid4,
+        editable=False,
+    )
+    site_entity = models.OneToOneField(
+        SiteEntity, on_delete=models.CASCADE, related_name="pose_component"
+    )
+    relative_to = models.ForeignKey(
+        SiteEntity,
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+        related_name="dependent_pose_components",
+    )
+    x = models.FloatField(default=0)
+    y = models.FloatField(default=0)
+    z = models.FloatField(default=0)
+
+    def __str__(self):
+        return f"Pose of SE {self.site_entity.name}"
 
 
 class DataPointType(models.Model):

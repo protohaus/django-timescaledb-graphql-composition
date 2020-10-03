@@ -7,8 +7,10 @@ verify_ssl = true
 ipdb = "*"
 
 [packages]
-django = "*"
-psycopg2 = "*"
+django = "~=3.1.2"
+psycopg2 = "~=2.8.6"
+graphene-django = "~=2.13.0"
+django-filter = "~=2.4.0"
 
 [requires]
 python_version = "3.8"

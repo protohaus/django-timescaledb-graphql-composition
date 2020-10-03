@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'graphene_django',
 ]
 
 MIDDLEWARE = [
@@ -123,3 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+# Graphene-Django
+# https://docs.graphene-python.org/projects/django/en/latest/
+
+GRAPHENE = {
+    'SCHEMA': 'django_timescale.schema.schema'
+}
